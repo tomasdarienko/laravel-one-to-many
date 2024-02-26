@@ -7,6 +7,10 @@
                <h1>I miei progetti</h1>
           </div>
 
+          <div class="col-12 text-left p-3">
+               <a href="{{route('admin.posts.create')}}">crea nuovo progetto</a>
+
+          </div>
 
           <div class="col-12">
 
@@ -26,8 +30,16 @@
                               <td>{{$post->title}}</td>
                               <td>{{$post->owner}}</td>
                               <td>
-                                   <button>ca</button>
-                                   <button>mo</button>
+                                   <button>
+                                        <a href="{{route('admin.posts.edit',['post'=>$post])}}"
+                                             class="btn btn-primary my-2">modifica
+                                        </a>
+                                   </button>
+                                   <button>
+                                        <a href="{{route('admin.posts.show',['post'=>$post->slug])}}">
+                                             visalizza
+                                        </a>
+                                   </button>
                                    <button>boh</button>
                               </td>
                          </tr>
