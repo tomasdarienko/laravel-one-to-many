@@ -20,7 +20,12 @@
 
                </div>
                <h5>Foto</h5>
-               <img src="{{asset('/storage/' . $post->cover_image)}}" alt="">
+               @if($post->cover_image == null)
+
+               <img src="{{asset('/img/cover.jpg')}}" alt="" width="400">
+               @else
+               <img src="{{asset('/storage/' . $post->cover_image)}}" alt="" width="200px">
+               @endif
 
           </div>
      </div>

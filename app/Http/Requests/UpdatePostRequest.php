@@ -24,7 +24,7 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
             return [
-                'title'=>'unique:posts|required',
+                'title'=>'required',
                 // 'descrtiption'=>'required',
                 'owner'=>'required',
             ];
@@ -34,7 +34,6 @@ class UpdatePostRequest extends FormRequest
         return[
 
             'title.required'=>'il titolo e obbligatorio',
-            'title.unique'=>'questo titolo e gia stato utilizzato',
             // 'descrtiption.required'=>'la descrizone e obbligatoria',
             'owner.required'=>'il proprietario e obbligatorio'
         ];

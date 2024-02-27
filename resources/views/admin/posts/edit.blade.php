@@ -9,16 +9,16 @@
 
 
           <div class="col-12">
-          @if ($errors->any())
+               @if ($errors->any())
                <div class="alert alert-danger">
                     <ul>
                          @foreach($errors->all() as $error)
-                              <li>{{$error}}</li>
+                         <li>{{$error}}</li>
                          @endforeach
                     </ul>
                </div>
                @endif
-               <form action="{{route('admin.posts.update',$post->id)}}" method="post">
+               <form action="{{route('admin.posts.update',$post->id)}}" method="post" enctype="multipart/form-data">
 
                     @csrf
                     @method('PUT')
@@ -35,6 +35,18 @@
                          <input type="text" name="owner" id="owner" class="form-control" placeholder="owner" required
                               value="{{ $post->owner}}">
                     </div>
+
+
+                    <div class="form-group my-3">
+
+                         @if($post->cover_image !== null)
+                              <img src="{{asset('/storage/' . $post->cover_image)}}" alt="" width="200px">
+                         @endif
+
+                         <input type="file" name="cover_image" id="cover_image" class="form-control"
+                              placeholder="immagine">
+                    </div>
+
                     <div class="form-group my-3">
                          <button class="btn btn-success">salva</button>
                     </div>

@@ -101,6 +101,14 @@ class PostController extends Controller
         // $slug = Str::slug($form_data['title'],'-');
         // $post->slug = $slug;
 
+        if($request->hasFile('cover_image')){
+            if($post->cover_image != null){
+                Storage::delete($post->cover_image);
+            }
+
+            $path= Storage::disk('public')->put('posts_image',$form_data['cover_image']);
+            $form_data['cover_image'] = $path;
+        }
         $slug = Str::slug($form_data['title'],'-');
         $form_data['slug']= $slug;
         $post-> update($form_data);
