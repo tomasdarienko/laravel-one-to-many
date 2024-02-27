@@ -94,8 +94,8 @@
           <main class="">
 
                <div class="conteiner-fluid vh-100 d-flex">
-                    <nav class="sidebar col-2 vh-100 bg-secondary">
-                         <ul class="nav flex-column">
+                    <nav class="sidebar col-2 vh-100 bg-secondary sticky">
+                         <ul class="nav flex-column ">
                               <li class="nav-item">
                                    <a class="nav-link text-white" href="{{ route ('admin.dashboard') }}">
                                         Dashboard

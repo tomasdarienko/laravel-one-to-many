@@ -30,17 +30,20 @@
                               <td>{{$post->title}}</td>
                               <td>{{$post->owner}}</td>
                               <td>
-                                   <button>
                                         <a href="{{route('admin.posts.edit',['post'=>$post])}}"
-                                             class="btn btn-primary my-2">modifica
+                                             class="btn btn-warning my-2">modifica
                                         </a>
-                                   </button>
-                                   <button>
-                                        <a href="{{route('admin.posts.show',['post'=>$post->id])}}">
+                                        <a href="{{route('admin.posts.show',['post'=>$post->id])}}" class="btn btn-primary my-2">
                                              visalizza
                                         </a>
-                                   </button>
-                                   <button>boh</button>
+                                   <form action="{{route('admin.posts.destroy',['post'=>$post->id])}}" method="post" 
+                                   onsubmit="return confirm('sei sicuro di voler cancellare questo post????????')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button  type="submit" class="btn btn-sm btn-danger">
+                                             cancella
+                                        </button>
+                                   </form>
                               </td>
                          </tr>
                          @endforeach
