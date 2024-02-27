@@ -19,6 +19,8 @@
                     </p>
 
                </div>
+               <h5>Foto</h5>
+               <img src="{{asset('/storage/' . $post->cover_image)}}" alt="">
 
           </div>
      </div>

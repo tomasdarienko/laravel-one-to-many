@@ -19,7 +19,7 @@
                     </ul>
                </div>
                @endif
-               <form action="{{route('admin.posts.store')}}" method="post">
+               <form action="{{route('admin.posts.store')}}" method="post". enctype="multipart/form-data">
 
                     @csrf
                     <div class="form-group my-3">
@@ -32,6 +32,9 @@
                     </div>
                     <div class="form-group my-3">
                          <input type="text" name="owner" id="owner" class="form-control" placeholder="owner" required value="{{old('owner')}}">
+                    </div>
+                    <div class="form-group my-3">
+                         <input type="file" name="cover_image" id="cover_image" class="form-control" placeholder="immagine">
                     </div>
                     <div class="form-group my-3">
                          <button class="btn btn-success">salva</button>

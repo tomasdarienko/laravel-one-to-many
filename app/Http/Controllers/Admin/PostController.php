@@ -7,6 +7,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller; 
 use illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -47,6 +48,11 @@ class PostController extends Controller
         // $post->owner = $form_data['owner'];
         // $post->slug = $slug;
         
+        if($request->hasFile('cover_image')){
+
+            $path= Storage::disk('public')->put('posts_image',$form_data['cover_image']);
+            $form_data['cover_image'] = $path;
+        }
         $slug = Str::slug($form_data['title'],'-');
         $form_data['slug']= $slug;
         $post->fill($form_data);
