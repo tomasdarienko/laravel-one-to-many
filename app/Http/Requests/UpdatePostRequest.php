@@ -13,7 +13,7 @@ class UpdatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,20 @@ class UpdatePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+            return [
+                'title'=>'unique:posts|required',
+                // 'descrtiption'=>'required',
+                'owner'=>'required',
+            ];
+        
+    }
+    public function messages(){
+        return[
+
+            'title.required'=>'il titolo e obbligatorio',
+            'title.unique'=>'questo titolo e gia stato utilizzato',
+            // 'descrtiption.required'=>'la descrizone e obbligatoria',
+            'owner.required'=>'il proprietario e obbligatorio'
         ];
     }
 }

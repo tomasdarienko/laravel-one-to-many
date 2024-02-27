@@ -36,7 +36,7 @@
                                         </a>
                                    </button>
                                    <button>
-                                        <a href="{{route('admin.posts.show',['post'=>$post->slug])}}">
+                                        <a href="{{route('admin.posts.show',['post'=>$post->id])}}">
                                              visalizza
                                         </a>
                                    </button>

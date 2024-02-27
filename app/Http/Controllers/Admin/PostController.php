@@ -42,12 +42,14 @@ class PostController extends Controller
     {
         $form_data =$request->all();
         $post = new Post();
-        $post->title=$form_data['title'];
-        $post->description = $form_data['description'];
-        $post->owner = $form_data['owner'];
-        $slug = Str::slug($post->title,'-');
-        $post->slug = $slug;
+        // $post->title=$form_data['title'];
+        // $post->description = $form_data['description'];
+        // $post->owner = $form_data['owner'];
+        // $post->slug = $slug;
         
+        $slug = Str::slug($form_data['title'],'-');
+        $form_data['slug']= $slug;
+        $post->fill($form_data);
         $post-> save();
 
         return redirect()->route('admin.posts.index');
@@ -82,17 +84,22 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
         $form_data = $request->all();
-        $post = Post::find($id);
-        $post->title = $form_data['title'];
-        $post->description = $form_data['description'];
-        $post->owner = $form_data['owner'];
 
-        $post-> update();
+        // $Post = Post::find($id);
+        // $post->title = $form_data['title'];
+        // $post->description = $form_data['description'];
+        // $post->owner = $form_data['owner'];
+        // $slug = Str::slug($form_data['title'],'-');
+        // $post->slug = $slug;
 
-        return redirect()->route('admin.posts.show',['post' => $post]);
+        $slug = Str::slug($form_data['title'],'-');
+        $form_data['slug']= $slug;
+        $post-> update($form_data);
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**
