@@ -12,6 +12,7 @@
 
                <h5 class="p-3">Owner: {{$post->owner}}</h5>
 
+               <h5>tipologia: <td>{{$post->type ? $post->type->name : 'non specificata'}}</td></h5>
                <div class="p-5">
                     <h5>Description</h5>
                     <p>
@@ -19,6 +20,7 @@
                     </p>
 
                </div>
+
                <h5>Foto</h5>
                @if($post->cover_image == null)
 

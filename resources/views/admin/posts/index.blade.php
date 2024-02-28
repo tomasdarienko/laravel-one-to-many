@@ -14,11 +14,12 @@
 
           <div class="col-12">
 
-               <table class="table table-striped vw-100">
+               <table class="table table-striped ">
                     <thead>
                          <tr>
                               <th></th>
                               <th>ID</th>
+                              <th>Tipologia</th>
                               <th>Titolo</th>
                               <th>Owner</th>
                               <th>azioni</th>
@@ -36,6 +37,7 @@
                                    @endif
                               </td>
                               <td>{{$post->id}}</td>
+                              <td>{{$post->type ? $post->type->name : 'non specificata'}}</td>
                               <td>{{$post->title}}</td>
                               <td>{{$post->owner}}</td>
                               <td>

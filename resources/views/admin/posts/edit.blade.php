@@ -35,8 +35,17 @@
                          <input type="text" name="owner" id="owner" class="form-control" placeholder="owner" required
                               value="{{ $post->owner}}">
                     </div>
-
-
+                    <div class="form-group my-3">
+                         <select name="type_id" id="type_id" class="form-select" placeholder="type_id" required>
+                         
+                              <option value="">Seleziona la tipologia</option>
+                              @foreach($types as $type)
+                                   <option value="{{$type->id}}" 
+                                        @selected($type->id == old("type_id",$post->type ? $post->type->id : ''))>{{$type->name}}
+                                   </option>
+                              @endforeach
+                         </select>
+                    </div>
                     <div class="form-group my-3">
 
                          @if($post->cover_image !== null)

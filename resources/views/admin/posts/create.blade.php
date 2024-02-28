@@ -33,6 +33,18 @@
                     <div class="form-group my-3">
                          <input type="text" name="owner" id="owner" class="form-control" placeholder="owner" required value="{{old('owner')}}">
                     </div>
+
+
+                    <div class="form-group my-3">
+                         <select name="type_id" id="type_id" class="form-select" placeholder="type_id" required>
+                         
+                              <option value="">Seleziona la tipologia</option>
+                              @foreach($types as $type)
+                                   <option value="{{$type->id}}">{{$type->name}}</option>
+                              @endforeach
+                         </select>
+                    </div>
+
                     <div class="form-group my-3">
                          <input type="file" name="cover_image" id="cover_image" class="form-control" placeholder="immagine">
                     </div>
