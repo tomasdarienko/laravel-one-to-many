@@ -103,7 +103,7 @@ class PostController extends Controller
 
         if($request->hasFile('cover_image')){
             if($post->cover_image != null){
-                Storage::delete($post->cover_image);
+                Storage::disk('public')->delete($post->cover_image);
             }
 
             $path= Storage::disk('public')->put('posts_image',$form_data['cover_image']);
