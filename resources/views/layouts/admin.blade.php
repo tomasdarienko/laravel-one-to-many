@@ -93,7 +93,7 @@
           </header>
           <main class="">
 
-               <div class="conteiner-fluid vh-100 d-flex">
+               <div class="conteiner-fluid vh-100 d-flex collapse navbar-collapse">
                     <nav class="sidebar col-2 vh-100 bg-secondary sticky">
                          <ul class="nav flex-column ">
                               <li class="nav-item">
